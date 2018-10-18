@@ -109,4 +109,7 @@ if(!gameIsFinish($caseStatus)) {
 } else {
 	echo "Bravo ! Vraiment Bravo ! ";
 }
+// test commit
+// test commit
+
 ?>
