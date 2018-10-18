@@ -64,8 +64,8 @@ function gameIsFinish($caseStatus) {
 }
 
 // display messages
-function setMessage($msg, $class) {
-	echo "<div class='$class'>$msg</div>";	
+function setMessage($msg, $alert) {
+	echo "<div class='alert $alert'>$msg</div>";	
 	}
 ?>
 
