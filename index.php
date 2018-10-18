@@ -65,7 +65,7 @@ function gameIsFinish($caseStatus) {
 
 // display messages
 function setMessage($msg, $class) {
-	echo "<div class='alert alert-$class text-center' role='alert'>$msg</div>";	
+	echo "<div class='$class'>$msg</div>";	
 	}
 ?>
 
@@ -89,6 +89,7 @@ function setMessage($msg, $class) {
 		.bleu { background: blue; }
 		.rouge { background: red; }
 		.jaune { background: yellow; }
+		.danger { color: red; }
 	</style>
 </head>
 <body>
