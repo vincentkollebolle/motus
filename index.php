@@ -7,12 +7,14 @@ $proposalStr = "";
 
 //get user proposal
 if(isset($_GET["proposalInput"])) {
-	if (strlen($_GET["proposalInput"]) < 1) {
+	if (!preg_match ("/^[a-zA-Z\s]+$/", $_GET["proposalInput"])) {
+		setMessage("Seules les lettres sont autorisées", "danger");
+	} else if (strlen($_GET["proposalInput"]) < 1) {
 		setMessage("Ecrivez quelque chose...", "danger");	
 	} else if (strlen($_GET["proposalInput"]) > strlen(SOLUTION)) {
 		setMessage("Votre mot ne peut pas contenir plus de ".strlen(SOLUTION)." lettres", "danger");
 	} else {
-		$proposalStr = $_GET["proposalInput"];
+		$proposalStr = filter_var($_GET["proposalInput"], FILTER_SANITIZE_STRING);
 	}
 }
 $proposal = str_split($proposalStr);
