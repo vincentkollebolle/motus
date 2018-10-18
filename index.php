@@ -3,12 +3,17 @@
 const INIT = "f________";
 const SOLUTION = "formation";
 $solution =  str_split(SOLUTION);
+$proposalStr = "";
 
-//get user proposal (/!\ todo NTU)
+//get user proposal
 if(isset($_GET["proposalInput"])) {
-	$proposalStr = $_GET["proposalInput"];
-} else {
-	$proposalStr = "";
+	if (strlen($_GET["proposalInput"]) < 1) {
+		setMessage("Ecrivez quelque chose...", "danger");	
+	} else if (strlen($_GET["proposalInput"]) > strlen(SOLUTION)) {
+		setMessage("Votre mot ne peut pas contenir plus de ".strlen(SOLUTION)." lettres", "danger");
+	} else {
+		$proposalStr = $_GET["proposalInput"];
+	}
 }
 $proposal = str_split($proposalStr);
 
@@ -57,15 +62,20 @@ function gameIsFinish($caseStatus) {
 	}
 	return true;
 }
+
+// display messages
+function setMessage($msg, $class) {
+	echo "<div class='alert alert-$class text-center' role='alert'>$msg</div>";	
+	}
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8">
+	<meta charset="utf-8">
 	<title>Mo-Mo-Motus</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<style>
 		.case {
 			display: block;
@@ -77,8 +87,8 @@ function gameIsFinish($caseStatus) {
 			width: 20px;
 		}
 		.bleu { background: blue; }
-		.rouge { background:red; }
-		.jaune { background:yellow; }
+		.rouge { background: red; }
+		.jaune { background: yellow; }
 	</style>
 </head>
 <body>
