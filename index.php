@@ -107,6 +107,6 @@ if(!gameIsFinish($caseStatus)) {
 	</form>
 <?php
 } else {
-	echo "Bravo ! ";
+	echo "Bravo ! Vraiment Bravo ! ";
 }
 ?>
