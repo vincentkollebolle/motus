@@ -1,4 +1,4 @@
-<?php 
+<?php
 //solution
 const INIT = "f________";
 const SOLUTION = "formation";
@@ -8,7 +8,7 @@ $proposalStr = "";
 //get user proposal
 if(isset($_GET["proposalInput"])) {
 	if (strlen($_GET["proposalInput"]) < 1) {
-		setMessage("Ecrivez quelque chose...", "danger");	
+		setMessage("Ecrivez quelque chose...", "danger");
 	} elseif (!preg_match ("/^[a-zA-Z]+$/", $_GET["proposalInput"])) {
 		setMessage("Seules les lettres sont autorisées", "danger");
 	} else if (strlen($_GET["proposalInput"]) > strlen(SOLUTION)) {
@@ -19,13 +19,13 @@ if(isset($_GET["proposalInput"])) {
 }
 $proposal = str_split($proposalStr);
 
-//game is finished ? 
+//game is finished ?
 // 0 : wrong
 // 1 : present in word
 // 2 : present and in the good place
-$caseStatus = ['2',0,0,0,0,0,0,0,0 ];
+$caseStatus = [2,0,0,0,0,0,0,0,0 ];
 
-//Print letter on the board 
+//Print letter on the board
 function printLetter($letter, $casestatus) {
 	if($casestatus == 0 ) { $color = "bleu"; }
 	if($casestatus == 1 ) { $color = "jaune"; }
@@ -41,16 +41,16 @@ function printBoard($string, $caseStatus) {
 	echo "<table>";
 	echo "<tr>";
 	$word =  preg_split("//u", $string, -1, PREG_SPLIT_NO_EMPTY);
-	
+
 	for($i=0; $i< count($word); ++$i) {
 		if($caseStatus[$i] == 2 ) {
-			printLetter($word[$i], $caseStatus[$i]); 
+			printLetter($word[$i], $caseStatus[$i]);
 		} else if ($caseStatus[$i] == 1) {
 			printLetter($word[$i],$caseStatus[$i]);
 		} else {
 			printLetter($word[$i],$caseStatus[$i]);
 		}
-	}	 
+	}
 	echo "</tr>";
 	echo "</table>";
 }
@@ -60,14 +60,14 @@ function gameIsFinish($caseStatus) {
 	foreach($caseStatus as $value) {
 		if($value !=2) {
 			return false;
-		} 
+		}
 	}
 	return true;
 }
 
 // display messages
 function setMessage($msg, $alert) {
-	echo "<div class='alert $alert'>$msg</div>";	
+	echo "<div class='alert $alert'>$msg</div>";
 	}
 ?>
 
@@ -106,7 +106,7 @@ function setMessage($msg, $alert) {
 		if(!gameIsFinish($caseStatus)) {
 			for($i = 0; $i < count($proposal); ++$i) {
 				if($proposal[$i] == $solution[$i]) {
-					$caseStatus[$i] = 2;		
+					$caseStatus[$i] = 2;
 				} else if (in_array($proposal[$i], $solution)) {
 					$caseStatus[$i] = 1;
 				} else {
