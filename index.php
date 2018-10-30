@@ -1,3 +1,4 @@
+
 <?php
 //solution
 const INIT = "f________";
@@ -78,45 +79,53 @@ function setMessage($msg, $alert) {
 	<title>Mo-Mo-Motus</title>
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<style>
-		.case {
-			display: block;
-			color: white;
-			font-weight: bold;
-			margin-right: 5px;
-			border: 1px solid white;
-			padding: 10px;
-			width: 20px;
-		}
-		.bleu { background: blue; }
-		.rouge { background: red; }
-		.jaune { background: yellow; }
-		.danger { color: red; }
-	</style>
+	<link rel="stylesheet" href="main.css">
 </head>
 <body>
-	<h1>Mo-Mo-Motus</h1>
-	<?php printBoard(INIT, $caseStatus); ?>
-	<br />
-	<form action="" method="">
-		<input name="proposalInput" placeholder="votre proposition" type="text" />
-		<input type="submit" value="ok" />
-	</form>
-	<?php
-		if(!gameIsFinish($caseStatus)) {
-			for($i = 0; $i < count($proposal); ++$i) {
-				if($proposal[$i] == $solution[$i]) {
-					$caseStatus[$i] = 2;
-				} else if (in_array($proposal[$i], $solution)) {
-					$caseStatus[$i] = 1;
-				} else {
-					$caseStatus[$i] = 0;
+
+<div id="tiri">
+	<img src="assets/tiri.jpg" alt="" srcset="">
+</div>
+
+<div id="content">
+	<div id="titre">
+		<h1>
+			<img src="assets/motus.png" alt="logo de notre jeu">
+		</h1>
+	</div>
+
+	<div id="jeu">
+		<div id="cases">
+			<?php printBoard(INIT, $caseStatus); ?>
+		</div>
+
+		<div id="formul">
+			<form action="" method="">
+				<input name="proposalInput" placeholder="votre proposition" type="text" /><br />
+				<input type="submit" value="Valider" class="valider" />
+			</form>
+		</div>
+	</div>
+
+	<div id="message">
+		<?php
+			if(!gameIsFinish($caseStatus)) {
+				for($i = 0; $i < count($proposal); ++$i) {
+					if($proposal[$i] == $solution[$i]) {
+						$caseStatus[$i] = 2;
+					} else if (in_array($proposal[$i], $solution)) {
+						$caseStatus[$i] = 1;
+					} else {
+						$caseStatus[$i] = 0;
+					}
 				}
-			}
-			printBoard($proposalStr, $caseStatus);
-		} else {
-			echo "Bravo ! Vraiment Bravo ! ";
-	}
-	?>
+				printBoard($proposalStr, $caseStatus);
+			} else {
+				echo "Bravo ! Vraiment Bravo ! ";
+		}
+		?>
+	</div>
+
+</div>
 </body>
 </html>

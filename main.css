@@ -1,0 +1,65 @@
+body {
+    background-color: #980001;
+    padding: 20px 50px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif ;
+    display: flex;
+    flex-direction: row;
+}
+div#content {
+    border: 7px double #980001;
+    border-radius: 15px;
+    background: #EEEEEE;
+    width: 70%;
+    margin: auto;
+}
+div#jeu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    min-height: 150px;
+}
+div#formul {
+    text-align: center;
+    padding: 10px 0;
+}
+#formul input {
+    margin: 10px 0;
+    line-height: 3em;
+    border-radius: 15px;
+    padding: 0 10px;
+    border: 2px solid #980001;
+    font-size: 1em;
+}
+.valider {
+    background-color: rgb(204, 6, 6);
+    color: white;
+    font-weight: bold;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+}
+.case {
+    display: block;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-right: 5px;
+    border: 2px solid #980001;
+    border-radius: 50%;
+    padding: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 1.5em;
+    -webkit-text-stroke: 1px black;
+    text-transform: uppercase;
+}
+.bleu { background: blue; }
+.rouge { background: red; }
+.jaune { background: yellow; }
+.danger { color: red; }
+h1 img {
+    border-radius: 50%;
+}
