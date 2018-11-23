@@ -107,6 +107,8 @@ function setMessage($msg, $alert) {
 		</div>
 	</div>
 
+<!-- message -->
+
 	<div id="message">
 		<?php
 			if(!gameIsFinish($caseStatus)) {
