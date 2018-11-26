@@ -33,7 +33,7 @@ function printLetter($letter, $casestatus) {
 	if($casestatus == 2 ) { $color = "rouge"; }
  	?><td>
  		<span class="case <?=$color?>"><?=$letter?></span>
- 		</td>
+ 	   </td>
  	<?php
 }
 
@@ -124,7 +124,7 @@ function setMessage($msg, $alert) {
 				printBoard($proposalStr, $caseStatus);
 			} else {
 				echo "Bravo ! Vraiment Bravo ! ";
-		}
+			}
 		?>
 	</div>
 
